@@ -5,21 +5,17 @@ import java.util.Comparator;
 // Greedy approach
 public class FractionalKnapSack {
 	// function to get maximum value
-	private static double getMaxValue(ItemValue[] arr,
-									int capacity)
+	private static double getMaxValue(ItemValue[] arr, int capacity)
 	{
 		// sorting items by value/weight ratio;
 		Arrays.sort(arr, new Comparator<ItemValue>() {
 			@Override
-			public int compare(ItemValue item1,
-							ItemValue item2)
+			public int compare(ItemValue item1, ItemValue item2)
 			{
 				double cpr1
-					= new Double((double)item1.value
-								/ (double)item1.weight);
+					= new Double((double)item1.value / (double)item1.weight);
 				double cpr2
-					= new Double((double)item2.value
-								/ (double)item2.weight);
+					= new Double((double)item2.value / (double)item2.weight);
 
 				if (cpr1 < cpr2)
 					return 1;
@@ -47,8 +43,7 @@ public class FractionalKnapSack {
 				double fraction
 					= ((double)capacity / (double)curWt);
 				totalValue += (curVal * fraction);
-				capacity
-					= (int)(capacity - (curWt * fraction));
+				capacity = (int)(capacity - (curWt * fraction));
 				break;
 			}
 		}
